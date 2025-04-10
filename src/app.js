@@ -10,6 +10,9 @@ app.use(helmet()); //use helmet for security
 app.use(compression())  //use compression for gzip compression
 
 // init db
+require("./dbs/init.mongodb")
+const {checkOverload} = require('./helpers/check.connect')
+checkOverload()
 
 //init routes
 app.get("/", (req, res) => {
